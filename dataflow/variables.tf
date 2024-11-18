@@ -1,12 +1,23 @@
-resource "google_dataflow_job" "wordcount" {
-  name = "wordcount-job"
-  template_gcs_path = "gs://dataflow-templates/latest/Word_Count"
-  temp_gcs_location = var.temp_gcs_location
-  project = var.project_id
-  region = var.region
-  parameters = {
-    inputFile = var.input_file
-    output    = var.output_location
-  }
-  on_delete = "cancel"
+variable "project_id" {
+  type = string
+}
+
+variable "region" {
+  type    = string
+  default = "us-central1"
+}
+
+variable "temp_gcs_location" {
+  type    = string
+  default = "gs://tmp_xqhu/tf-test"
+}
+
+variable "input_file" {
+  type    = string
+  default = "gs://dataflow-samples/shakespeare/kinglear.txt"
+}
+
+variable "output_location" {
+  type    = string
+  default = "gs://tmp_xqhu/tf-test/wordcount/output"
 }
