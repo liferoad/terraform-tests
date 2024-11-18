@@ -1,0 +1,9 @@
+.terraform
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+*.tfplan
+*.tfplan.backup
+crash.log
+default.workspace
+modules
